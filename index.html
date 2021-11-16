@@ -8,19 +8,38 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <title>Pendu_Pour_6ans</title>
+  <title>Chifoumi</title>
 </head>
 
 <body>
-
-  <img src="assets/img/Pendu.png" id="myImg1" alt="pendu" width="20%" height="20%" />
-  <!-- <div class="container_principal-fluid"> -->
-  <div id="indexLetter" class="row myLet justify-content-center"></div>
-  <div id="myKeyboard" class="row myLet justify-content-center"></div>
-  <div>
-     <button class="row myLet justify-content-center" id="Action_Jouer" type="button" onclick="Action_Jouer()">Jouer</button>
+  <div class="container-fuild">
+    <div class="row col-6 justify-center">
+      <p1 class="text-align-center">Chifoumi</p1>
+    </div>
+   
+    <div class="row row-cols-auto">
+      <div class=""></div>
+      <div id="Pierre" class="col">
+        <button id="Pierre" type="hidden"  onclick="RecupChoix('Pierre')">Pierre</button>
+      </div>
+      <div id="Feuille" class="col">
+        <button id="Feuille" type="hidden" onclick="RecupChoix('Feuille')">Feuille</button>
+      </div>
+      <div id="Ciseaux" class="col">
+        <button id="Ciseaux" type="hidden" onclick="RecupChoix('Ciseaux')">Ciseaux</button>
+      </div>
+      <div class=""></div>
+    </div>
+    <div class="row row-cols-auto">
+      <button class="col" id="Combat" type="button" onclick="">Combat </button>
+    </div>
+    <div class="row row-cols-auto">
+      <button class="col" id="Resultat" type="button" onclick="">_</button>
+    </div>
   </div>
   <!-- </div> -->
+
+  <!-- lancement script -->
   <script src="./script.js"></script>
 
   <!-- Optional JavaScript; choose one of the two! -->
