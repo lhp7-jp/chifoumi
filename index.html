@@ -13,31 +13,36 @@
 
 <body>
   <div class="container-fuild">
-    <div class="row col-6 justify-center">
-      <p1 class="text-align-center">Chifoumi</p1>
+    <div class="row style=text-align:center align-content">
+      <div class="col-4"></div>
+      <p1 class="col-4">Chifoumi</p1>
+      <div class="col-4"></div>
     </div>
    
-    <div class="row row-cols-auto">
-      <div class=""></div>
-      <div id="Pierre" class="col">
-        <button id="Pierre" type="hidden"  onclick="RecupChoix('Pierre')">Pierre</button>
+    <div class="row align-content justify-content m-2">
+      <div class="col-2"></div>
+      <div id="Pierre" class="col-2">
+        <button id="Pierre" type="hidden"  onclick="recupChoix('Pierre')">Pierre</button>
       </div>
-      <div id="Feuille" class="col">
-        <button id="Feuille" type="hidden" onclick="RecupChoix('Feuille')">Feuille</button>
+      <div id="Feuille" class="col-2">
+        <button id="Feuille" type="hidden" onclick="recupChoix('Feuille')">Feuille</button>
       </div>
-      <div id="Ciseaux" class="col">
-        <button id="Ciseaux" type="hidden" onclick="RecupChoix('Ciseaux')">Ciseaux</button>
+      <div id="Ciseaux" class="col-2">
+        <button id="Ciseaux" type="hidden" onclick="recupChoix('Ciseaux')">Ciseaux</button>
       </div>
-      <div class=""></div>
+      <div class="col-2"></div>
     </div>
-    <div class="row row-cols-auto">
-      <button class="col" id="Combat" type="button" onclick="">Combat </button>
+    <div class="row align-content ">
+      <div class="col-4"></div>
+      <button class="col-1 m-2" id="Combat" type="button" onclick="combat()">Combat </button>
+      <div class="col-8"></div>
     </div>
-    <div class="row row-cols-auto">
-      <button class="col" id="Resultat" type="button" onclick="">_</button>
-    </div>
+    <div class="row align-content justify-content: center">
+      <div class="col-4"></div>
+      <!-- <button class="col-1 m-2" id="Resultat" type="button" onclick="">_______</button> -->
+    <!-- </div> -->
   </div>
-  <!-- </div> -->
+</div>
 
   <!-- lancement script -->
   <script src="./script.js"></script>
