@@ -3,7 +3,9 @@ const myAleaChifoumi = document.getElementById("myAleaChifoumi");
 const indexChifoumi = document.getElementById("indexChifoumi");
 let scorePlayer = 0;
 let scoreComputer = 0;
-let nbGame = 0;
+let nbGame = 1;
+let returnMsg = "";
+let clickContact = 0;
 
 function aleaNb(min, max) {
     min = Math.ceil(min);
@@ -12,41 +14,43 @@ function aleaNb(min, max) {
 };
 
 function recupChoix(choixPlayer) {
-    let workchoixPlayer = choixPlayer;
-    console.log(choixPlayer);
-    let choiceAleaThing = myChifoumi[aleaNb(0, myChifoumi.length)];
-    console.log(choiceAleaThing);
-    if (workchoixPlayer == "Pierre" && choiceAleaThing == "Pierre") {
-        sendMessage(nul);
-    } else {
-        if (workchoixPlayer == "Pierre" && choiceAleaThing == "Ciseaux") {
-            sendMessage(`gagné`);
-            scorePlayer++;
+    if (clickContact == 0) {
+        //console.log(choixPlayer);
+        let choiceAleaThing = myChifoumi[aleaNb(0, myChifoumi.length)];
+        //console.log(choiceAleaThing);
+        if (choixPlayer == "Pierre" && choiceAleaThing == "Pierre") {
+            alert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
         } else {
-            if (workchoixPlayer == "Pierre" && choiceAleaThing == "Feuille") {
-                sendMessage(`perdu`);
-                scoreComputer++;
+            if (choixPlayer == "Pierre" && choiceAleaThing == "Ciseaux") {
+                alert(sendMessage(choixPlayer, choiceAleaThing, 'gagné'));
+                scorePlayer++;
             } else {
-                if (workchoixPlayer == "Feuille" && choiceAleaThing == "Ciseaux") {
-                    sendMessage(`perdu`);
+                if (choixPlayer == "Pierre" && choiceAleaThing == "Feuille") {
+                    alert(sendMessage(choixPlayer, choiceAleaThing, 'perdu'));
                     scoreComputer++;
                 } else {
-                    if (workchoixPlayer == "Feuille" && choiceAleaThing == "Pierre") {
-                        sendMessage(`gagné`);
-                        scorePlayer++;
+                    if (choixPlayer == "Feuille" && choiceAleaThing == "Ciseaux") {
+                        alert(sendMessage(choixPlayer, choiceAleaThing, 'perdu'));
+                        scoreComputer++;
                     } else {
-                        if (workchoixPlayer == "Feuille" && choiceAleaThing == "Feuille") {
-                            sendMessage(`nul`);
+                        if (choixPlayer == "Feuille" && choiceAleaThing == "Pierre") {
+                            alert(sendMessage(choixPlayer, choiceAleaThing, 'gagné'));
+                            scorePlayer++;
                         } else {
-                            if (workchoixPlayer == "Ciseaux" && choiceAleaThing == "Feuille") {
-                                sendMessage(`gagné`);
+                            if (choixPlayer == "Feuille" && choiceAleaThing == "Feuille") {
+                                alert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
                             } else {
-                                if (workchoixPlayer == "Ciseaux" && choiceAleaThing == "Pierre") {
-                                    sendMessage(`perdu`);
+                                if (choixPlayer == "Ciseaux" && choiceAleaThing == "Feuille") {
+                                    alert(sendMessage(choixPlayer, choiceAleaThing, 'gagné'));
                                 } else {
-                                    if (workchoixPlayer == "Ciseaux" && choiceAleaThing == "Ciseaux") {
-                                        sendMessage(`nul`);
+                                    if (choixPlayer == "Ciseaux" && choiceAleaThing == "Pierre") {
+                                        alert(sendMessage(choixPlayer, choiceAleaThing, 'perdu'));
                                     } else {
+                                        if (choixPlayer == "Ciseaux" && choiceAleaThing == "Ciseaux") {
+                                            alert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
+                                        } else {
+                                            clickContact++;
+                                        }
                                     }
                                 }
                             }
@@ -55,28 +59,29 @@ function recupChoix(choixPlayer) {
                 }
             }
         }
-    }
-};
-
-function sendMessage(msg) {
-    window.confirm(choixPlayer + " contre " + choiceAleaThing + " = match " + msg);
-    console.log(sendMessage(nul));
-};
-
-function combat() {
-    if (nbGame == 10) {
-        if (scorePlayer > scoreComputer) {
-            window.confirm(" Vainqueur le joueur - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
-            location.reload();
-        } else if (scorePlayer = scoreComputer) {
-            window.confirm(" Match nul - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
-            location.reload();
-        } else {
-            window.confirm(" Vainqueur l ordinateur - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
-            location.reload();
-        }
     } else {
-        nbGame++;
-        console.log(nbGame);
-    }
-};
+        alert("vous n'avez pas cliqué sur Combat");
+    }};
+
+    function sendMessage(choixPlayer, choiceAleaThing, msg) {
+        return [choixPlayer + " contre " + choiceAleaThing + " = match " + msg];
+    };
+
+    function combat() {
+        clickContact--;
+        if (nbGame == 10) {
+            if (scorePlayer > scoreComputer) {
+                window.confirm(" Vainqueur le joueur - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
+                location.reload();
+            } else if (scorePlayer = scoreComputer) {
+                window.confirm(" Match nul - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
+                location.reload();
+            } else {
+                window.confirm(" Vainqueur l ordinateur - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
+                location.reload();
+            }
+        } else {
+            nbGame++;
+            console.log(nbGame);
+        }
+    };
