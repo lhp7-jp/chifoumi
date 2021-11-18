@@ -15,11 +15,12 @@ function aleaNb(min, max) {
 
 function recupChoix(choixPlayer) {
     if (clickContact == 0) {
-        //console.log(choixPlayer);
+        clickContact++;
+        //console.log(clickContact);
         let choiceAleaThing = myChifoumi[aleaNb(0, myChifoumi.length)];
         //console.log(choiceAleaThing);
         if (choixPlayer == "Pierre" && choiceAleaThing == "Pierre") {
-            alert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
+            walert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
         } else {
             if (choixPlayer == "Pierre" && choiceAleaThing == "Ciseaux") {
                 alert(sendMessage(choixPlayer, choiceAleaThing, 'gagné'));
@@ -49,7 +50,7 @@ function recupChoix(choixPlayer) {
                                         if (choixPlayer == "Ciseaux" && choiceAleaThing == "Ciseaux") {
                                             alert(sendMessage(choixPlayer, choiceAleaThing, 'nul'));
                                         } else {
-                                            clickContact++;
+                                           
                                         }
                                     }
                                 }
@@ -60,7 +61,7 @@ function recupChoix(choixPlayer) {
             }
         }
     } else {
-        alert("vous n'avez pas cliqué sur Combat");
+        alert("vous n'avez pas cliqué sur Rejouer");
     }};
 
     function sendMessage(choixPlayer, choiceAleaThing, msg) {
@@ -69,7 +70,7 @@ function recupChoix(choixPlayer) {
 
     function combat() {
         clickContact--;
-        if (nbGame == 10) {
+        if (nbGame == 5) {
             if (scorePlayer > scoreComputer) {
                 window.confirm(" Vainqueur le joueur - Score du joueur = " + scorePlayer + " Score de l ordinateur = " + scoreComputer);
                 location.reload();
@@ -82,6 +83,6 @@ function recupChoix(choixPlayer) {
             }
         } else {
             nbGame++;
-            console.log(nbGame);
+            //console.log(nbGame);
         }
     };
